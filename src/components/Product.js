@@ -1,10 +1,15 @@
 import { FruitsApi } from "../hooks/useFruitsApi";
 import React, { useState } from "react";
+import PopUpFruits from "../components/PopUpFruits";
 
 const Product = () => {
   const [product, loading] = FruitsApi();
   const [search, setSearch] = useState("");
-  console.log(product);
+  const [popUp, setPopUp] = useState(false);
+  console.log(popUp);
+  const [popUpData, setPopUpData] = useState(null);
+  console.log(popUpData);
+  const handlePopUp = () => setPopUp(!popUp);
   return (
     <div className="max-w-[1100px] mx-auto py-8 w-full my-20 ">
       <div className="mb-4 flex justify-center items-center">
@@ -58,12 +63,19 @@ const Product = () => {
                 <button className="p-2 bg-green-700 ml-4 rounded-lg text-white">
                   Acquista
                 </button>
-                <button className="p-2 bg-orange-700 ml-4 rounded-lg text-white">
+                <button
+                  onClick={() => {
+                    setPopUpData(fruit);
+                    handlePopUp();
+                  }}
+                  className="p-2 bg-orange-700 ml-4 rounded-lg text-white"
+                >
                   Dettagli
                 </button>
               </div>
             </div>
           ))}
+        {popUp && <PopUpFruits fruit={popUpData} state={setPopUp} />}
       </div>
     </div>
   );
