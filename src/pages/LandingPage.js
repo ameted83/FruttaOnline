@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/logo-main.png";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -15,9 +16,11 @@ const LandingPage = () => {
         <div className="flex justify-center items-center flex-col font-bold text-xl text-center">
           <div>
             <h1>La miglior frutta a casa tua</h1>
-            <button className="rounded-lg bg-orange-500 p-2 mt-3">
-              Visita lo store
-            </button>
+            <Link to="/home">
+              <button className="rounded-lg bg-orange-500 p-2 mt-3 text-white">
+                Visita lo store
+              </button>
+            </Link>
           </div>
         </div>
         <div className="bg-watermelon h-full w-full bg-cover bg-center"></div>

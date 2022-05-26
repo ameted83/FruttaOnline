@@ -10,8 +10,8 @@ const PopUpFruits = ({ fruit, state }) => {
   };
 
   return (
-    <div className="backdrop-blur-md w-screen h-screen fixed top-1/2 left-1/2 flex items-center justify-center -translate-y-1/2 -translate-x-1/2">
-      <div className="shadow-xl rounded-lg flex flex-col justify-center items-center inset-x-0 bg-green-500 w-[500px] h-[600px] ">
+    <div className="z-10 backdrop-blur-md w-screen h-screen fixed top-1/2 left-1/2 flex items-center justify-center -translate-y-1/2 -translate-x-1/2">
+      <div className="shadow-xl rounded-lg flex flex-col justify-center items-center inset-x-0 bg-gradient-to-t from-green-400 to-green-600 w-[500px] h-[600px] ">
         <h1 className="text-white font-bold text-4xl mb-4">{fruit.name}</h1>
         <img
           src={fruit.image}
