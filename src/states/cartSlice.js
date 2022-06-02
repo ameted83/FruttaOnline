@@ -15,9 +15,10 @@ const cartSlice = createSlice({
     },
     removeItem: (state, action) => {
       const nextCartFruits = state.fruits.filter(
-        (fruit) => fruit.id !== action.payload.id
+        (fruit) => fruit.cartId !== action.payload.cartId
       );
       state.fruits = nextCartFruits;
+      // console.log(nextCartFruits);
       state.amount -= 1;
     },
   },

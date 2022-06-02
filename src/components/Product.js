@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import PopUpFruits from "../components/PopUpFruits";
 import { useDispatch } from "react-redux";

@@ -26,8 +26,8 @@ const PopUpCart = () => {
                       alt={fruit.name}
                     />
                   </div>
-                  <div className="w-[33%]">{fruit.name}</div>
-                  <div className="w-[33%]">{fruit.price}</div>
+                  <div className="w-[33%]"> {fruit.name}</div>
+                  <div className="w-[33%]"> {fruit.price}</div>
                   <div>
                     <DeleteIcon onClick={() => dispatch(removeItem(fruit))} />
                   </div>
