@@ -18,8 +18,10 @@ const cartSlice = createSlice({
         (fruit) => fruit.cartId !== action.payload.cartId
       );
       state.fruits = nextCartFruits;
-      // console.log(nextCartFruits);
       state.amount -= 1;
+    },
+    decrementCart(state, action) {
+      state.fruits.findIndex((fruit) => fruit.id === action.payload.id);
     },
   },
 });

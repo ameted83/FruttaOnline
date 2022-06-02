@@ -26,11 +26,14 @@ const Navbar = () => {
         <div className="flex justify-around items-center">
           <div>
             <div className="flex justify-center items-center">
-              <div>
-                <ShoppingCartIcon onClick={() => handleOpenCart()} />
-              </div>
+              <button>
+                <ShoppingCartIcon
+                  className="h-[30px] hover:text-[40px] hover:text-orange-500"
+                  onClick={() => handleOpenCart()}
+                />
+              </button>
 
-              <div className="bg-white rounded-[100%] w-[27px] h-[27px] text-center text-black text-lg">
+              <div className="bg-white rounded-[100%] w-[20px] h-[20px] text-center text-green-500 text-xm">
                 {amount}
               </div>
             </div>

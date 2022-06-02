@@ -22,6 +22,7 @@ const DeveloperPopUp = ({ dev, state }) => {
           <h2>{dev.name}</h2>
           <p>Età: {dev.age}</p>
           <p>Città: {dev.location}</p>
+          <p>LinkedIn: {dev.link}</p>
         </div>
       </div>
     </div>
