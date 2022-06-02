@@ -32,7 +32,10 @@ const Footer = () => {
               </h2>
               <ul className="text-white">
                 <li className="mb-4">
-                  <a href="https://flowbite.com" className="hover:underline">
+                  <a
+                    href="https://join.develhope.co/en/sign-up/"
+                    className="hover:underline"
+                  >
                     Develhope
                   </a>
                 </li>

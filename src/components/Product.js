@@ -27,7 +27,7 @@ const Product = () => {
           placeholder="Cerca il tuo frutto..."
         ></input>
       </div>
-      <div className="flex flex-wrap gap-4 mx-auto p-20 font-sans">
+      <div className="flex justify-center items-center flex-wrap gap-4 mx-auto p-20 font-sans">
         {loading ? (
           <div className="text-3xl font-bold">Caricamento dati in corso...</div>
         ) : (
