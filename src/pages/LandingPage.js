@@ -15,7 +15,9 @@ const LandingPage = () => {
         </div>
         <div className="flex justify-center items-center flex-col font-bold text-xl text-center">
           <div>
-            <h1>La miglior frutta a casa tua</h1>
+            <h1 className="text-amber-700 font-bold">
+              LA MIGLIOR FRUTTA A CASA TUA
+            </h1>
             <Link to="/home">
               <button className="rounded-lg bg-orange-500 p-2 mt-3 text-white">
                 Visita lo store
