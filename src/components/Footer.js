@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { developers } from "../Developers";
+import developers from "../Developers";
 import DeveloperPopUp from "./DeveloperPopUp";
 import FooterLogo from "../assets/logoFooter.png";
 
@@ -33,7 +33,7 @@ const Footer = () => {
               <ul className="text-white">
                 <li className="mb-4">
                   <a href="https://flowbite.com" className="hover:underline">
-                    Flowbite
+                    Develhope
                   </a>
                 </li>
                 <li>

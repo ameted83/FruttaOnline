@@ -1,15 +1,21 @@
-import { FruitsApi } from "../hooks/useFruitsApi";
 import React, { useState } from "react";
 import PopUpFruits from "../components/PopUpFruits";
+import { useDispatch } from "react-redux";
+import { addItem } from "../states/cartSlice";
+import { nanoid } from "nanoid";
+import { FruitsApi } from "../hooks/useFruitsApi";
 
 const Product = () => {
   const [product, loading] = FruitsApi();
   const [search, setSearch] = useState("");
   const [popUp, setPopUp] = useState(false);
-  console.log(popUp);
+  // console.log(popUp);
   const [popUpData, setPopUpData] = useState(null);
-  console.log(popUpData);
+  // console.log(popUpData);
   const handlePopUp = () => setPopUp(!popUp);
+
+  const dispatch = useDispatch();
+
   return (
     <div className="max-w-[1100px] mx-auto py-8 w-full my-20 ">
       <div className="mb-4 flex justify-center items-center">
@@ -22,7 +28,7 @@ const Product = () => {
         ></input>
       </div>
       <div className="relative grid mx-auto justify-center items-center w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {loading ? <h1>Caricamento prodotti in corso...</h1> : false}
+        {loading && <h1>Caricamento prodotti in corso...</h1>}
         {product
           .filter((fruit) => {
             if (search === "") {
@@ -60,7 +66,17 @@ const Product = () => {
                 </p>
               </div>
               <div className="mt-4 flex justify-center items-center">
-                <button className="p-2 bg-green-700 ml-4 rounded-lg text-white">
+                <button
+                  onClick={() =>
+                    dispatch(
+                      addItem({
+                        ...fruit,
+                        cartId: nanoid(),
+                      })
+                    )
+                  }
+                  className="p-2 bg-green-700 ml-4 rounded-lg text-white"
+                >
                   Acquista
                 </button>
                 <button

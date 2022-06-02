@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 const PopUpFruits = ({ fruit, state }) => {
   useEffect(() => {
     state(true);
-  }, []);
+  }, [fruit, state]);
 
   const handleClosePopUp = () => {
     state(false);
