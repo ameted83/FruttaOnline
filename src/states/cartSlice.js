@@ -20,6 +20,15 @@ const cartSlice = createSlice({
       state.fruits = nextCartFruits;
       state.amount -= 1;
     },
+    decrementCart(state, action) {
+      const itemIndex = state.fruits.findIndex(
+        (fruit) => fruit.id === action.payload.id
+      );
+
+      // if (state.fruits[itemIndex]. > 1) {
+      //   state.fruits[itemIndex]. -= 1;
+      // }
+    },
   },
 });
 
