@@ -12,7 +12,7 @@ const PopUpCart = () => {
     <div>
       <div className="fixed p-4 max-w-md  rounded-lg border shadow-md sm:p-8 bg-green-500 bg-border-white w-screen h-scrren top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
         <div className="flex justify-between items-center mb-4">
-          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
+          <h5 className="text-xl font-bold leading-none text-white pb-3">
             I tuoi prodotti nel carrello...
           </h5>
         </div>
