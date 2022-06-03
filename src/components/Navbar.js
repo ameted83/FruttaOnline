@@ -4,6 +4,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSelector } from "react-redux";
 import PopUpCart from "./PopUpCart";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { amount } = useSelector((state) => state.cart);
@@ -17,11 +18,13 @@ const Navbar = () => {
     <div>
       <div className="bg-green-500 h-[80px] flex items-center justify-between p-2 text-white fixed w-screen top-0">
         <div>
-          <img
-            src={NavbarLogo}
-            alt="logoNavbar"
-            className="w-[50px] rounded-[100%]"
-          />
+          <Link to="/">
+            <img
+              src={NavbarLogo}
+              alt="logoNavbar"
+              className="w-[50px] rounded-[100%]"
+            />
+          </Link>
         </div>
         <div className="flex justify-around items-center">
           <div>
