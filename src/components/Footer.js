@@ -77,9 +77,10 @@ const Footer = () => {
                 Sviluppato da
               </h2>
               <ul className="text-white">
-                {developers.map((developer) => {
+                {developers.map((developer, index) => {
                   return (
                     <li
+                      key={index}
                       className="cursor-pointer hover:underline"
                       onClick={() => {
                         setDevData(developer);

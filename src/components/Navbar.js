@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="bg-green-500 h-[80px] flex items-center justify-between p-2 text-white ">
+      <div className="bg-green-500 h-[80px] flex items-center justify-between p-2 text-white fixed w-screen top-0">
         <div>
           <img
             src={NavbarLogo}
@@ -33,7 +33,7 @@ const Navbar = () => {
                 />
               </button>
 
-              <div className="bg-white rounded-[100%] w-[20px] h-[20px] text-center text-green-500 text-xm">
+              <div className="bg-white rounded-[100%] w-[25px] h-[25px] text-center text-green-500 text-xm">
                 {amount}
               </div>
             </div>
