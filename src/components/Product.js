@@ -1,22 +1,34 @@
 /* eslint-disable array-callback-return */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PopUpFruits from "../components/PopUpFruits";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../states/cartSlice";
 import { nanoid } from "nanoid";
-import { FruitsApi } from "../hooks/useFruitsApi";
+import {
+  allProducts,
+  productStatus,
+  errorProduct,
+  loadingProduct,
+  fetchFruits,
+} from "../states/productSlice";
 
 const Product = () => {
-  const [product, loading] = FruitsApi();
+  const allFruits = useSelector(allProducts);
+  console.log(allFruits);
+  const statusFruits = useSelector(productStatus);
+  const errorFruits = useSelector(errorProduct);
+  const loadingFruits = useSelector(loadingProduct);
   const [search, setSearch] = useState("");
   const [popUp, setPopUp] = useState(false);
-  // console.log(popUp);
   const [popUpData, setPopUpData] = useState(null);
-  // console.log(popUpData);
   const handlePopUp = () => setPopUp(!popUp);
 
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    if (statusFruits !== "ok") {
+      dispatch(fetchFruits());
+    }
+  }, [dispatch, statusFruits]);
   return (
     <>
       <div className="mt-[150px] flex justify-center items-center">
@@ -29,15 +41,13 @@ const Product = () => {
         ></input>
       </div>
       <div className="flex justify-center items-center flex-wrap gap-4 mx-auto p-20 font-sans">
-        {loading ? (
+        {!errorFruits && loadingFruits && (
           <div className="text-3xl font-bold text-white">
             Caricamento dati in corso...
           </div>
-        ) : (
-          false
         )}
 
-        {product
+        {allFruits.fruits
           .filter((fruit) => {
             if (search === "") {
               return fruit;
@@ -48,15 +58,14 @@ const Product = () => {
             }
           })
 
-          .map((fruit, index) => (
-            <div key={index} className="shadow-lg rounded-lg p-10">
-              <div className="flex items-center justify-center">
-                <img
-                  src={fruit.image}
-                  className="w-[190px] h-[170px] object-scale-down"
-                  alt={fruit.name}
-                />
-              </div>
+          .map((fruit) => (
+            <div
+              key={nanoid()}
+              className="border border-neutral-300 border-solid rounded-lg p-10"
+            >
+              <p>
+                <img src={fruit.image} className="w-60 h-60" alt={fruit.name} />
+              </p>
               <p className="text-3xl font-bold mt-10">{fruit.name}</p>
               <p className="text-2xl mt-3">{fruit.price} €</p>
               <div className="mt-3 text-gray-500">
