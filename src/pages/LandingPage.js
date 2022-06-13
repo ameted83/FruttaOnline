@@ -7,10 +7,10 @@ const LandingPage = () => {
     <>
       <div className="grid gap-4 w-screen h-screen items-center grid-cols-1 md:grid-cols-2 relative ">
         <div className="bg-ananas h-full w-full bg-cover bg-center"></div>
-        <div className="absolute inset-x-0 mx-auto bg-logoMain bg-cover bg-center w-[200px] h-[200px] flex justify-center items-center md:block sm:hidden"></div>
-        <div className="flex justify-end">
-          <div className="fixed top-0">
-            <img className="w-[150px]" src={logo} alt="logo" />
+        <div className="hidden md:block absolute inset-x-0 mx-auto bg-logoMain bg-cover bg-center w-[200px] h-[200px] justify-center items-center "></div>
+        <div className="hidden md:flex mx-3 justify-end">
+          <div className="hidden md:block fixed top-0 ">
+            <img className="w-[150px] " src={logo} alt="logo" />
           </div>
         </div>
         <div className="flex justify-center items-center flex-col font-bold text-xl text-center">

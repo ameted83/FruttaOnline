@@ -7,10 +7,12 @@ import { Provider } from "react-redux";
 import { combineReducers } from "@reduxjs/toolkit";
 import cartReducer from "./states/cartSlice";
 import fruitsReducer from "./states/productSlice";
+import registerReducer from "./states/signUpSlice";
 
 const reducer = combineReducers({
   cart: cartReducer,
   products: fruitsReducer,
+  user: registerReducer,
 });
 
 const store = configureStore({

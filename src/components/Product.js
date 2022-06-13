@@ -14,7 +14,6 @@ import {
 
 const Product = () => {
   const allFruits = useSelector(allProducts);
-  console.log(allFruits);
   const statusFruits = useSelector(productStatus);
   const errorFruits = useSelector(errorProduct);
   const loadingFruits = useSelector(loadingProduct);
@@ -58,20 +57,33 @@ const Product = () => {
             }
           })
 
-          .map((fruit) => (
+          .map((fruit, index) => (
             <div
-              key={nanoid()}
-              className="border border-neutral-300 border-solid rounded-lg p-10"
+              key={index}
+              className="flex flex-col mx-auto justify-center items-center w-[250px] "
             >
-              <p>
-                <img src={fruit.image} className="w-60 h-60" alt={fruit.name} />
-              </p>
-              <p className="text-3xl font-bold mt-10">{fruit.name}</p>
-              <p className="text-2xl mt-3">{fruit.price} €</p>
-              <div className="mt-3 text-gray-500">
-                <div>calorie: {fruit.nutritions.calories}</div>
+              <div>
+                <h1 className="font-bold text-2xl">{fruit.name}</h1>
               </div>
-              <div className="flex items-center justify-between   flex-wrap mt-5">
+              <div
+                className="w-full h-[150px] bg-contain bg-center bg-no-repeat overflow-hidden"
+                style={{ backgroundImage: "url(" + fruit.image + ")" }}
+              ></div>
+              <div className="mt-4 flex items-center justify-center flex-wrap">
+                <p className="text-sm mb-3 mx-2 bg-slate-300 p-1 rounded-md mr-2">
+                  Carboidrati: {fruit.nutritions.carbohydrates}
+                </p>
+                <p className="text-sm mb-3 mx-2 bg-slate-300 p-1 rounded-md mr-2">
+                  Calorie: {fruit.nutritions.calories}
+                </p>
+                <p className=" text-sm mb-3 mx-2 bg-slate-300 p-1 rounded-md mr-2">
+                  Grassi: {fruit.nutritions.fat}%
+                </p>
+                <p className="text-sm mb-3 mx-2 bg-slate-300 p-1 rounded-md mr-2">
+                  Prezzo:{fruit.price}
+                </p>
+              </div>
+              <div className=" flex items-center justify-between   flex-wrap mt-5">
                 <button
                   onClick={() =>
                     dispatch(
@@ -81,7 +93,7 @@ const Product = () => {
                       })
                     )
                   }
-                  className="bg-lime-500 rounded-lg p-2 text-white"
+                  className=" bg-lime-500 rounded-lg p-2 m-3 text-white"
                 >
                   Acquista
                 </button>
@@ -90,7 +102,7 @@ const Product = () => {
                     setPopUpData(fruit);
                     handlePopUp();
                   }}
-                  className="bg-orange-400 rounded-lg p-2 text-white"
+                  className="bg-orange-400 rounded-lg p-2 m-3 text-white"
                 >
                   Dettagli
                 </button>

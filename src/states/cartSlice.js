@@ -34,6 +34,18 @@ const cartSlice = createSlice({
       );
       state.fruits = nextCartFruits;
       state.amount -= 1;
+      state.totalPrice = Number(
+        state.fruits
+          .map((price) => {
+            console.log(parseFloat(price.price));
+            const result = parseFloat(price.price.replace(/,/g, ".")).toFixed(
+              2
+            );
+            return parseFloat(result);
+          })
+          .reduce((a, b) => a + b, 0)
+          .toFixed(2)
+      );
     },
     decrementCart(state, action) {
       state.fruits.findIndex((fruit) => fruit.id === action.payload.id);
