@@ -7,11 +7,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Badge from "@mui/material/Badge";
 import { SignUp } from "./SignUp";
+import Welcome from "./Welcome";
 
 const Navbar = () => {
   const [signUp, setSignUp] = useState(false);
   const { amount } = useSelector((state) => state.cart);
   const [showCart, setShowCart] = useState(false);
+
+  const arrayUsers = useSelector((state) => state.user.users);
 
   const handleOpenCart = () => {
     setShowCart(!showCart);
@@ -52,6 +55,7 @@ const Navbar = () => {
             <button className="rounded-md bg-orange-500 p-2 ml-2 mr-4 hover:bg-green-800">
               Login
             </button>
+            <div>{arrayUsers.length > 0 ? <Welcome /> : false}</div>
           </div>
         </div>
       </div>
