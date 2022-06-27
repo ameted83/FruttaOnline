@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import developers from "../Developers";
+// import developers from "../Developers";
 // import DeveloperPopUp from "./DeveloperPopUp";
 import FooterLogo from "../assets/logoFooter.png";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 
 const Footer = () => {
-  const [devPopup, setdevPopup] = useState(false);
+  // const [devPopup, setdevPopup] = useState(false);
 
-  const handleDevPopUp = () => setdevPopup(!devPopup);
-  const [devData, setDevData] = useState(null);
+  // const handleDevPopUp = () => setdevPopup(!devPopup);
+  // const [devData, setDevData] = useState(null);
 
   return (
     <div>
