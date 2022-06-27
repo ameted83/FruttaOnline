@@ -1,6 +1,7 @@
 import * as React from "react";
 import { addUser } from "../states/signUpSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Welcome from "./Welcome";
 
 export const SignUp = ({ login }) => {
   const array = useSelector((state) => state.user.users);
@@ -75,6 +76,7 @@ export const SignUp = ({ login }) => {
           </div>
           <div className="flex justify-around">
             <button
+              onClick={<Welcome />}
               type="submit"
               className=" mt-5 px-4 py-2 font-bold rounded shadow focus:outline-none hover:ring focus:ring-opacity-50 hover:ring-white bg-green-500"
             >

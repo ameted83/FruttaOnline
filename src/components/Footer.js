@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import developers from "../Developers";
-import DeveloperPopUp from "./DeveloperPopUp";
+// import DeveloperPopUp from "./DeveloperPopUp";
 import FooterLogo from "../assets/logoFooter.png";
 import { nanoid } from "nanoid";
 
@@ -73,7 +73,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div>
+            {/* <div>
               <h2 className="mb-6 text-sm font-semibold uppercase text-white">
                 Sviluppato da
               </h2>
@@ -96,7 +96,7 @@ const Footer = () => {
                   <DeveloperPopUp dev={devData} state={setdevPopup} />
                 )}
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
         <hr className="my-6 border-green-600 sm:mx-auto lg:my-8" />
