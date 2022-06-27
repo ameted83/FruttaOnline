@@ -1,0 +1,15 @@
+get /fruits
+get /fruits/:id
+get /fruit/?search       queryString
+
+post /fruits
+post /signUp
+post /login
+
+patch /fruits/:id
+
+delete /fruits
+
+
+
+
