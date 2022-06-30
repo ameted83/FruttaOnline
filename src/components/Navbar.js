@@ -7,9 +7,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Badge from "@mui/material/Badge";
 import { SignUp } from "./SignUp";
+import { LoginUp } from "./LoginUp";
 
 const Navbar = () => {
   const [signUp, setSignUp] = useState(false);
+  const [loginUp, setLoginUp] = useState(false);
   const { amount } = useSelector((state) => state.cart);
   const [showCart, setShowCart] = useState(false);
 
@@ -49,7 +51,10 @@ const Navbar = () => {
             >
               Registrati
             </button>
-            <button className="rounded-md bg-orange-500 p-2 ml-2 mr-4 hover:bg-green-800">
+            <button
+              onClick={() => setLoginUp(true)}
+              className="rounded-md bg-orange-500 p-2 ml-2 mr-4 hover:bg-green-800"
+            >
               Login
             </button>
           </div>
@@ -57,6 +62,7 @@ const Navbar = () => {
       </div>
       {showCart && <PopUpCart cart={setShowCart} />}
       {signUp && <SignUp login={setSignUp} />}
+      {loginUp && <LoginUp login={setLoginUp} />}
     </div>
   );
 };
