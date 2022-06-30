@@ -16,10 +16,10 @@ const LandingPage = () => {
         <div className="flex justify-center items-center flex-col font-bold text-xl text-center">
           <div>
             <h1 className="text-amber-700 font-bold">
-              LA MIGLIOR FRUTTA A CASA TUA
+              LA MIGLIORE FRUTTA DIRETTAMENTE A CASA TUA!
             </h1>
             <Link to="/home">
-              <button className="rounded-lg bg-orange-500 p-2 mt-3 text-white">
+              <button className="rounded-lg bg-orange-500 p-2 mt-3 text-white hover:bg-amber-700">
                 Visita lo store
               </button>
             </Link>
