@@ -8,12 +8,15 @@ import { Link } from "react-router-dom";
 import Badge from "@mui/material/Badge";
 import { SignUp } from "./SignUp";
 import { LoginUp } from "./LoginUp";
+import Profile from "./Profile";
 
 const Navbar = () => {
   const [signUp, setSignUp] = useState(false);
   const [loginUp, setLoginUp] = useState(false);
   const { amount } = useSelector((state) => state.cart);
   const [showCart, setShowCart] = useState(false);
+  const myUser = useSelector((state) => state.user.users);
+  console.log(myUser);
 
   const handleOpenCart = () => {
     setShowCart(!showCart);
@@ -31,7 +34,7 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <div className="flex justify-around items-center">
+        <div className="flex items-center">
           <div>
             <div className="flex justify-center items-center">
               <button>
@@ -44,7 +47,7 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-          <div>
+          <div className="items-center text-center">
             <button
               onClick={() => setSignUp(true)}
               className="rounded-md bg-orange-500 p-2 ml-4 hover:bg-green-800"
@@ -57,6 +60,7 @@ const Navbar = () => {
             >
               Login
             </button>
+            {myUser.length >= 1 && <Profile />}
           </div>
         </div>
       </div>
