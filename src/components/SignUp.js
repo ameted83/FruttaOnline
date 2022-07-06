@@ -1,7 +1,6 @@
 import * as React from "react";
 import { addUser } from "../states/signUpSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Welcome from "./Welcome";
 
 export const SignUp = ({ login }) => {
   const array = useSelector((state) => state.user.users);
@@ -23,6 +22,7 @@ export const SignUp = ({ login }) => {
     );
 
     event.target.reset();
+    login(false);
   };
 
   return (
@@ -36,7 +36,7 @@ export const SignUp = ({ login }) => {
             Registrati
           </h2>
           <div>
-            <label for="name" className="block mb-1 ml-1">
+            <label htmlFor="name" className="block mb-1 ml-1">
               Nome
             </label>
             <input
@@ -50,7 +50,7 @@ export const SignUp = ({ login }) => {
             />
           </div>
           <div>
-            <label for="email" className="block mb-1 ml-1">
+            <label htmlFor="email" className="block mb-1 ml-1">
               Password
             </label>
             <input
@@ -63,7 +63,7 @@ export const SignUp = ({ login }) => {
             />
           </div>
           <div>
-            <label for="message" className="block mb-1 ml-1">
+            <label htmlFor="message" className="block mb-1 ml-1">
               Email
             </label>
             <input
@@ -76,7 +76,6 @@ export const SignUp = ({ login }) => {
           </div>
           <div className="flex justify-around">
             <button
-              onClick={<Welcome />}
               type="submit"
               className=" mt-5 px-4 py-2 font-bold rounded shadow focus:outline-none hover:ring focus:ring-opacity-50 hover:ring-white bg-green-500"
             >
