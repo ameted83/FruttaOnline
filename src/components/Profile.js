@@ -10,13 +10,16 @@ const Profile = () => {
   console.log(myUser);
   return (
     <div className=" text-[15px] flex text-center items-center pt-2 px-10">
-      <AccountCircleIcon /> {myUser[0]?.name}
-      <button
-        className=" mx-4 hover:bg-red-700 "
-        onClick={() => dispatch(logOutUser())}
-      >
-        <ExitToAppIcon />
-      </button>
+      <di className="flex items-center justify-center">
+        <AccountCircleIcon className="m-[7px]" />
+        <h1 className="text-[25px] uppercase">{myUser[0]?.name}</h1>
+        <button
+          className=" mx-4 hover:bg-red-700 "
+          onClick={() => dispatch(logOutUser())}
+        >
+          <ExitToAppIcon />
+        </button>
+      </di>
     </div>
   );
 };

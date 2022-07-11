@@ -49,12 +49,14 @@ const Navbar = () => {
           </div>
           <div className="items-center text-center">
             <button
+              hidden={myUser.length >= 1 && <Profile />}
               onClick={() => setSignUp(true)}
               className="rounded-md bg-orange-500 p-2 ml-4 hover:bg-green-800"
             >
               Registrati
             </button>
             <button
+              hidden={myUser.length >= 1 && <Profile />}
               onClick={() => setLoginUp(true)}
               className="rounded-md bg-orange-500 p-2 ml-2 mr-4 hover:bg-green-800"
             >
