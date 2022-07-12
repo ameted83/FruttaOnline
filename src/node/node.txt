@@ -11,5 +11,22 @@ patch /fruits/:id
 delete /fruits
 
 
+modale login
+
+button per aggiungere frutto allo shop pagina/modale form per aggiungere i dati
+
+per ogni card button per modificare il singolo frutto
+pagina/modale con form precompilato e modificabile
+
+per ogni card button delete singolo frutto
+modale sei sicuro di voler cancellare il frutto? button yes / button no
+
+per ogni card button delete singolo frutto
+modale sei sicuro di voler cancellare il frutto? button yes / button no
 
 
+
+creazione project node express in nuova cartella
+install typescrit e configure
+configure base server
+rotta get text per collegare frontend api => array di prova
