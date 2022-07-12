@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import pen from "../assets/pen-to-square-regular.svg";
+import trash from "../assets/trash-alt-regular.png";
 import ModifyUp from "./ModifyUp";
+import DeleteFruit from "./DeleteFruit";
 
 const PopUpFruits = ({ fruit, state }) => {
   const [modifyUp, setModifyUp] = useState(false);
+  const [deleteFruit, setDeleteFruit] = useState(false);
 
   useEffect(() => {
     state(true);
@@ -15,7 +18,7 @@ const PopUpFruits = ({ fruit, state }) => {
 
   return (
     <div>
-      {!modifyUp && (
+      {!modifyUp && !deleteFruit && (
         <div className="z-10 backdrop-blur-md w-screen h-screen fixed top-1/2 left-1/2 flex items-center justify-center -translate-y-1/2 -translate-x-1/2">
           <div className="shadow-xl rounded-lg flex flex-col justify-center items-center inset-x-0 bg-gradient-to-t from-green-400 to-green-600 w-[500px] h-[600px] ">
             <div className="w-[100%] flex justify-end">
@@ -24,6 +27,12 @@ const PopUpFruits = ({ fruit, state }) => {
                 onClick={() => setModifyUp(true)}
               >
                 <img className=" w-6" src={pen}></img>
+              </button>
+              <button
+                className="bg-orange-500 rounded-lg p-3 mb-5 mr-5 text-white font-bold text-xl"
+                onClick={() => setDeleteFruit(true)}
+              >
+                <img className=" w-6" src={trash}></img>
               </button>
             </div>
             <h1 className="text-white font-bold text-4xl mb-4">{fruit.name}</h1>
@@ -61,6 +70,11 @@ const PopUpFruits = ({ fruit, state }) => {
           image={fruit.image}
           price={fruit.price}
           family={fruit.family}
+          handleClose={handleClosePopUp}
+        />
+      )}
+      {deleteFruit && (
+        <DeleteFruit
           handleClose={handleClosePopUp}
         />
       )}
