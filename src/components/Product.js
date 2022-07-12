@@ -1,6 +1,9 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import PopUpFruits from "../components/PopUpFruits";
+import plus from "../assets/plus.svg";
+import closeRed from "../assets/close-red.svg";
+import NewFruit from "./NewFruit";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../states/cartSlice";
 import { nanoid } from "nanoid";
@@ -21,6 +24,13 @@ const Product = () => {
   const [popUp, setPopUp] = useState(false);
   const [popUpData, setPopUpData] = useState(null);
   const handlePopUp = () => setPopUp(!popUp);
+  const [newFruitForm, SetNewFruitForm] = useState(false);
+  const handleOpenFruitForm = () => {
+    SetNewFruitForm(true);
+  };
+  const handleCloseFruitForm = () => {
+    SetNewFruitForm(false);
+  };
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -39,6 +49,27 @@ const Product = () => {
           placeholder="Cerca il tuo frutto..."
         ></input>
       </div>
+      <div className=" bg-slate-200 w-full h-16 flex justify-start pl-6 pt-2">
+        <button
+          onClick={
+            newFruitForm === false
+              ? () => handleOpenFruitForm()
+              : () => handleCloseFruitForm()
+          }
+          className="w-[45px] h-[45px]"
+        >
+          <img
+            className="w-[50px] h-[50px]"
+            src={newFruitForm ? closeRed : plus}
+          />
+        </button>
+      </div>
+      {newFruitForm ? (
+        <NewFruit
+          newFruitForm={newFruitForm}
+          handleCloseFruitForm={handleCloseFruitForm}
+        />
+      ) : null}
       <div className="flex justify-center items-center flex-wrap gap-4 mx-auto p-20 font-sans">
         {!errorFruits && loadingFruits && (
           <div className="text-3xl font-bold text-white">
