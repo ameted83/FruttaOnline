@@ -26,7 +26,18 @@ modale sei sicuro di voler cancellare il frutto? button yes / button no
 
 
 
+
 creazione project node express in nuova cartella
 install typescrit e configure
 configure base server
 rotta get text per collegare frontend api => array di prova
+
+
+
+diagramma er database
+tabella fruits   /description
+tabella utenti  /ruolo admin
+
+https://www.diagrams.net/
+
+
