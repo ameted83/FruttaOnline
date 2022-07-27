@@ -1,21 +1,24 @@
 import { useState, useEffect } from "react";
 
-export const FruitsApi = () => {
-  const [product, setProduct] = useState([]);
+export const useFetch = (url, options) => {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(undefined);
   useEffect(() => {
     (async () => {
       setLoading(true);
       try {
-        const call = await fetch(`https://fruits-develhope.herokuapp.com/api`);
+        const call = await fetch(url, options);
         const response = await call.json();
-        setProduct(() => response.fruits);
+        setData(response);
         setLoading(false);
         return response;
       } catch (err) {
+        setLoading(false);
+        setError(err);
         console.log(err);
       }
     })();
   }, []);
-  return [product, loading];
+  return { data, loading, error };
 };

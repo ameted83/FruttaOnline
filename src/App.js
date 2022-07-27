@@ -1,16 +1,10 @@
 import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useFetch } from "./hooks/useFetch";
 import Home from "./pages/Home";
 
 function App() {
-  // async function fetchPlanets() {
-  //   const response = await fetch("http://localhost:3000/planets");
-  //   const planets = await response.json();
-
-  //   console.log({ planets });
-  // }
-
-  // fetchPlanets();
+  const { data, loading, error } = useFetch(`http://localhost:3000/fruits`);
   return (
     <div className="App">
       <Router>
